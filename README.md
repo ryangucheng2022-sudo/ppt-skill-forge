@@ -27,6 +27,28 @@ Design principles:
 - **Auto-fit is a class, not an error.** Non-quarter sizes hugging the underside of a declared size are auto-shrink artifacts; the system reports and tolerates them instead of bloating the whitelist.
 - **Checkers are configuration-driven.** All company specificity lives in one config file; checking logic is copied unchanged into the generated package.
 
+## What's inside
+
+- `SKILL.md` — the method: five stages, six trust rules, honest boundaries.
+- `references/method.md` — the five stages in detail.
+- `scripts/extract_fingerprint.py` — style fingerprint from observed usage: font sizes, fonts, fills, text colors, corner-furniture clusters; theme recorded for contrast.
+- `scripts/derive_whitelist.py` — three-layer whitelist derivation plus the human decision list.
+- `scripts/forge_skill.py` — assembles the company skill package.
+- `scripts/check_consistency.py` — derivation determinism, forge smoke test, checker-logic integrity, corpus reproducibility.
+- `templates/generated-skill.md` — the generated package's SKILL.md template.
+- `assets/checkers/` — the generic geometry/content checkers copied into generated packages (logic unchanged; all specificity in the config).
+- `examples/meridian-ppt/` — the fictional, reproducible worked example.
+- `ci/` — a ready-to-enable CI kit.
+
+## Who is it for
+
+- Brand and presentation owners who have templates but no enforceable standard.
+- Operations / PMO teams standardizing recurring management-reporting decks.
+- Consultants who need to stand up a client's deck standard quickly — and defend how each rule was derived.
+- Agent builders creating a company-specific PPT skill alongside a knowledge skill.
+
+Typical scenarios: onboarding an AI agent to a company's deck style; auditing a legacy template before a rebrand; freezing a font-size whitelist before a heavy reporting season.
+
 ## Quick start
 
 ```bash
@@ -51,9 +73,17 @@ python3 scripts/check_consistency.py
 # checker-logic integrity, orphan-file check all pass
 ```
 
+## CI
+
+A ready-to-enable kit lives in `ci/`: copy `ci/ci.yml` to `.github/workflows/ci.yml` and every push and PR runs the consistency check — derivation determinism, forge smoke test, checker-logic integrity, and worked-example corpus reproducibility. See `ci/README.md`.
+
 ## Honest boundaries
 
 The forge builds the *checking* layer completely; the generated skill's *generation* layer starts as a skeleton (generic page types + seed cloning). Content conventions — title rules, terminology — cannot be extracted from files; mine them as candidates and decide them with company-knowledge-to-skill.
+
+## Version
+
+Current release: **v0.1.0** (2026-11-05) — see [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
