@@ -1,0 +1,14 @@
+{
+ "allowed_pt": [
+  10.0,
+  10.5,
+  12.0,
+  16.0,
+  18.0,
+  40.0
+ ],
+ "comment": "DERIVED CANDIDATE by ppt-skill-forge from observed usage; not a standard until the decision list is signed off. Quarter-grid sizes seen >= 2 times at/above the floor. Non-quarter sizes are treated as auto-fit values (warning only). Corpus coverage by page type must be checked: display sizes absent from the corpus cannot be derived.",
+ "floor_error_pt": 8.0,
+ "small_report_pt": 9.0,
+ "template_table_floor_pt": 8.0
+}
